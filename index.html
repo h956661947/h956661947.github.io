@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    截止日期:<input type="text" placeholder="格式：20190603">
+    <button>提交</button>
+    <script>
+                    // console.log($(el.target).attr('tid'));
+                    document.getElementsByTagName('button')[0].onclick=function(){
+                        const endDate=parseInt(document.getElementsByTagName('input')[0].value);
+                        var date=new Date();
+                        var y=date.getFullYear().toString();
+                        var m;
+                        var d;
+                        if((date.getMonth()+1)<=9)
+                        {
+                            m='0'+(date.getMonth()+1).toString();
+                        }else{
+                            m=(date.getMonth()+1).toString();
+                        }
+                        if(date.getDate()<=9)
+                        {
+                            d='0'+date.getDate().toString();
+                        }else{
+                            d=date.getDate().toString();
+                        }
+                        var nowDate=parseInt(y+m+d);
+                        if(nowDate>=endDate)
+                        {
+                            alert('投票已關閉');
+                        }else{
+                            alert('投票仍在继续');
+                            // var tou_arr=[];
+                            // if(JSON.parse(localStorage.getItem('companytou')))
+                            // {
+                            //     tou_arr=JSON.parse(localStorage.getItem('companytou'));
+                            // }
+                            // if(JSON.parse(localStorage.getItem('companytou'))!=null)
+                            // {
+                            //     if(JSON.parse(localStorage.getItem('companytou')).indexOf(this.id+'-'+$(el.target).attr('tid'))!=-1)
+                            //     {
+                            //         al('您已投過票了');
+                                    
+                            //     }else{
+                            //         tou_arr.push(this.id+'-'+$(el.target).attr('tid'));
+                            //         localStorage.setItem('companytou',JSON.stringify(tou_arr));
+                            //         //企业投票动作
+                            //         $.ajax({
+                            //             type: "post",
+                            //             url: "../../company/addCount",
+                            //             data: JSON.stringify({"id":$(el.target).attr('tid')}),
+                            //             contentType:"application/json",
+                            //             success: function (data) {
+                            //                 al('投票成功');
+                            //                 T.info=T.get({method:'post',url:'../../company/showCompany',set:JSON.stringify({classify:T.id}),type:'application/json'});
+                            //                 var day=new Date();
+                            //                 localStorage.setItem('todaydate',day.getDate());
+                            //             }
+                            //         })
+                                    
+                                    
+                            //     }
+                            // }else{
+                            //     tou_arr.push(this.id+'-'+$(el.target).attr('tid'));
+                            //     localStorage.setItem('companytou',JSON.stringify(tou_arr));
+                            //     //企业投票动作
+                            //     $.ajax({
+                            //             type: "post",
+                            //             url: "../../company/addCount",
+                            //             data: JSON.stringify({"id":$(el.target).attr('tid')}),
+                            //             contentType:"application/json",
+                            //             success: function (data) {
+                            //                 al('投票成功');
+                            //                 T.info=T.get({method:'post',url:'../../company/showCompany',set:JSON.stringify({classify:T.id}),type:'application/json'});
+                            //                 var day=new Date();
+                            //                 localStorage.setItem('todaydate',day.getDate());
+                            //             }
+                            //         })
+                                    
+                                
+                            // }
+                        }
+                    }
+                    
+    </script>
+</body>
+</html>
